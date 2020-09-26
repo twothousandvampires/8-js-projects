@@ -1,29 +1,29 @@
-var upperCheck = document.getElementById('upperCase')
-var lowerCheck = document.getElementById('lowerCase')
-var numsCheck = document.getElementById('numbers')
-var symsCheck = document.getElementById('symbols')
-var length = document.getElementById('length')
-var getBut = document.getElementById('got')
-var area = document.getElementById('area')
+const upperCheck = document.getElementById('upperCase')
+const lowerCheck = document.getElementById('lowerCase')
+const numsCheck = document.getElementById('numbers')
+const symsCheck = document.getElementById('symbols')
+const length = document.getElementById('length')
+const getBut = document.getElementById('got')
+const area = document.getElementById('area')
 
-var upper = "QWERTYUIOPASDFGHJKLZXCVBNM"
-var lower = upper.toLowerCase();
-var nums = '1234567890';
-var symbols = '`~-_+=|\}]{[:;'
+const upper = "QWERTYUIOPASDFGHJKLZXCVBNM"
+const lower = upper.toLowerCase();
+const nums = '1234567890';
+const symbols = '`~-_+=|\}]{[:;'
 
 getBut.addEventListener('click',()=>{
     generate()
 })
 
 function generate(){
-    var pass = '';
-    var cases =[];
+    let pass = '';
+    let cases =[];
     if(upperCheck.checked) cases.push(upper)
     if(lowerCheck.checked) cases.push(lower)
     if(numsCheck.checked) cases.push(nums)
     if(symsCheck.checked) cases.push(symbols)
 
-    var passLength = length.value < 4 ? 4 : length.value;
+    let passLength = length.value < 4 ? 4 : length.value;
 
     if(cases.length != 0){
         for(let i = 0; i < passLength; i++){
@@ -33,6 +33,6 @@ function generate(){
         area.value = pass;
     }
     else{
-        area.value = "options is empty"
+        area.value = "options not choised"
     }   
 }

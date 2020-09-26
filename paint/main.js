@@ -1,21 +1,20 @@
-var cnv = document.getElementsByTagName('canvas')[0]
-var ctx = cnv.getContext('2d');
-var colorChoise = document.getElementById('color')
+const cnv = document.getElementsByTagName('canvas')[0]
+const ctx = cnv.getContext('2d');
+const colorChoise = document.getElementById('color')
 
-var incB = document.getElementById('increased')
-var decB = document.getElementById('decreased')
-var delB = document.getElementById('delete')
-var sizeP = document.getElementById('size')
+const incB = document.getElementById('increased')
+const decB = document.getElementById('decreased')
+const delB = document.getElementById('delete')
+const sizeP = document.getElementById('size')
 
-var pressed = false
-var size = 10;
-var color = 'black'
+let pressed = false
+let size = 10;
+let color = 'black'
 
 sizeP.innerText = size;
 
-
 delB.addEventListener('click',()=>{
-    ctx.clearRect(0,0, cnv.width, cnv.height)
+    ctx.clearRect(0, 0, cnv.width, cnv.height)
 })
 
 incB.addEventListener('click',()=>{
@@ -45,7 +44,7 @@ cnv.addEventListener('mousemove', (e)=>{
     }  
 })
 
-function draw(x , y){
+function draw(x, y){
     ctx.fillStyle = color;
     ctx.beginPath();
     ctx.arc(x, y, size, 0, 2 * Math.PI);

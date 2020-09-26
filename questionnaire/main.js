@@ -1,4 +1,4 @@
-var Data = [
+const Data = [
     {
         question : "what year was java script created?",
         a : "1995",
@@ -40,15 +40,13 @@ var Data = [
         rigth : "c"
     },
 ]
+let points = 0;
+let currentQ = 0;
 
-var points = 0;
-
-var currentQ = 0;
-
-var submit = document.getElementById('sub')
+const submit = document.getElementById('sub')
 
 submit.addEventListener('click',function(){   
-    let answers = document.getElementsByTagName('input');    
+    const answers = document.getElementsByTagName('input');    
     for(let i = 0; i < answers.length; i++){
         if(answers[i].checked && answers[i].value == Data[currentQ].rigth){
              points ++;
@@ -79,9 +77,7 @@ let q = document.getElementById('question');
 
 function getAnswer() {
     elem = Data[currentQ]
-
     q.innerText = elem.question;
-
     a1.innerText = elem.a;
     a2.innerText = elem.b;
     a3.innerText = elem.c;

@@ -39,5 +39,6 @@ body{
 
 .icon{
     transform: scale(2);
+    text-align: center;
 }
 

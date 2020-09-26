@@ -1,9 +1,9 @@
-let newYear = new Date("2021-01-01");
+const newYear = new Date("2021-01-01");
 
-let d = document.getElementsByClassName('days')[0];
-let h = document.getElementsByClassName('hours')[0];
-let m = document.getElementsByClassName('minutes')[0];
-let s = document.getElementsByClassName('seconds')[0];
+const d = document.getElementsByClassName('days')[0];
+const h = document.getElementsByClassName('hours')[0];
+const m = document.getElementsByClassName('minutes')[0];
+const s = document.getElementsByClassName('seconds')[0];
 
 function countdown(){
     let now = new Date();

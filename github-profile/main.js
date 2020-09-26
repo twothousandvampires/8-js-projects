@@ -1,7 +1,7 @@
 const GIT_URI = 'https://api.github.com/users/'
 
-var main = document.getElementById('userInfo')
-var form = document.getElementById('form')
+const main = document.getElementById('userInfo')
+const form = document.getElementById('form')
 
 form.addEventListener('submit',(e)=>{
     e.preventDefault();
@@ -12,7 +12,7 @@ form.addEventListener('submit',(e)=>{
 })
 
 async function get(user){  
-    var res = await fetch(GIT_URI + user);
+    let res = await fetch(GIT_URI + user);
     if(res.status != 404){
         var resData = await res.json()
         create(resData)
@@ -27,7 +27,7 @@ async function get(user){
 function create(user){   
     main.innerHTML = ``;
     main.style.padding = 20 + 'px'
-    var info = `
+    let info = `
     <div class = 'top_info'>
         <img src = '${user.avatar_url}'></img>
         <div>

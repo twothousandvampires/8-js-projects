@@ -1,22 +1,18 @@
-document.addEventListener('DOMContentLoaded',function(){
+document.addEventListener('DOMContentLoaded', function(){
     var addNote = document.getElementById('add');
-
     addNote.addEventListener('click', function(){
         addNewNote();
     })
     
-    var notes = JSON.parse(localStorage.getItem("notes"));
-    
+    var notes = JSON.parse(localStorage.getItem("notes"));  
     if (notes) {
         notes.forEach((note) => {
             addNewNote(note);
         });
     }
     
-    console.log(notes)
-    
     function addNewNote(t = ''){
-        var rect = document.createElement('div');
+        let rect = document.createElement('div');
         rect.classList.add("note")
     
         rect.innerHTML = `
@@ -29,12 +25,10 @@ document.addEventListener('DOMContentLoaded',function(){
             <p class ='content ${t ? "" : 'hidden'}'></p>
         </div>
         `
-        var editBut = rect.querySelector('.edit')
-        var remBut = rect.querySelector('.remove')
-        console.log(editBut)
-        console.log(remBut)
-        var content = rect.querySelector('.content')
-        var text = rect.querySelector('textarea')
+        const editBut = rect.querySelector('.edit')
+        const remBut = rect.querySelector('.remove')
+        const content = rect.querySelector('.content')
+        const text = rect.querySelector('textarea')
     
         text.value = t;
         content.innerText= t;
@@ -42,13 +36,10 @@ document.addEventListener('DOMContentLoaded',function(){
         editBut.addEventListener('click', function(){
         content.classList.toggle('hidden')
         text.classList.toggle('hidden')     
-        })
-    
+        })   
         text.addEventListener('input',function(e){
-        var value = e.target.value;
-    
+        var value = e.target.value;  
         content.innerText = value;
-    
         save();
         })
     
@@ -61,13 +52,12 @@ document.addEventListener('DOMContentLoaded',function(){
     }
     
     function save(){
-        var notes = document.querySelectorAll('textarea');
-        var toSave = [];
+        let notes = document.querySelectorAll('textarea');
+        let toSave = [];
     
         notes.forEach((note) => {
             toSave.push(note.value);
-        });
-    
+        });   
         localStorage.setItem("notes", JSON.stringify(toSave));
     }
 })
